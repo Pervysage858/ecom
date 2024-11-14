@@ -1,0 +1,38 @@
+- if !current_user.admin?
+  %a.btn.cat-poup{href: "javascript:void(0);"}
+    %i.fa.fa-plus
+    Add New
+- else
+  %a.btn{:href => new_product_path}
+    %i.fa.fa-plus
+    %span Add New
+  -#   -  elsif (@store.plan == "Basic") 
+  -#     %a.btn.cat-poup1{:href => "javascript:void(0);"}
+  -#       %i.fa.fa-plus
+  -#       %span Add New
+    
+  -#   - elsif (@store.plan == "Starter" and @all_products.count < 151)
+  -#     %a.btn{:href => new_product_path}
+  -#       %i.fa.fa-plus
+  -#       %span Add New
+  -#   -  elsif (@store.plan == "Starter") 
+  -#     %a.btn.cat-poup1{:href => "javascript:void(0);"}
+  -#       %i.fa.fa-plus
+  -#       %span Add New
+    
+  -#   - elsif (@store.plan == "Pro" and @all_products.count < 301)
+  -#     %a.btn{:href => new_product_path}
+  -#       %i.fa.fa-plus
+  -#       %span Add New
+  -#   -  elsif (@store.plan == "Pro") 
+  -#     %a.btn.cat-poup1{:href => "javascript:void(0);"}
+  -#       %i.fa.fa-plus
+  -#       %span Add New
+  -#   - elsif (@store.plan == "Super")
+  -#     %a.btn{:href => new_product_path}
+  -#       %i.fa.fa-plus
+  -#       %span Add New
+  -#   -  else 
+  -#     %a.btn.cat-poup1{:href => "javascript:void(0);"}
+  -#       %i.fa.fa-plus
+  -#       %span Add New

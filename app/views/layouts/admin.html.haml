@@ -1,0 +1,36 @@
+!!!
+%html.landing-html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE = edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "#1e1e2d", :name => "theme-color"}/
+    %meta{:content => "width=device-width,initial-scale=1,user-scalable=no", :name => "viewport"}/
+    %title Watskart
+    / css
+    = stylesheet_link_tag    "admin", :media => :all
+    = javascript_include_tag "admin"
+  %body
+    = render 'layouts/admin_header'
+    %section.section
+      %header.header
+        .left-box
+          %button.menu-btn
+            %span
+          .mob-logo
+            -# %img{:alt => "", :src => "https://s3.amazonaws.com/watskart/stores/logos/#{@store['id']}/original/#{@store['logo_file_name']}"}
+        .userlogin-box
+          
+          #google_translate_element  
+            .user-plan
+              %li
+                %a.sign-out{href: "/users/sign_out", :style => "color: #c50505"}
+                  %i.fa.fa-sign-out
+                  Sign Out
+
+
+    = yield
+
+
+  
+                    
+                    

@@ -1,0 +1,41 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, libstylesheets, vendorstylesheets,
+ * or vendorstylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+ @import 'admin/scss/base/_reset';
+
+@import 'admin/scss/plugin/_owlcarousel';
+@import 'admin/scss/plugin/_fontawesome';
+@import 'admin/scss/plugin/_fancybox';
+@import 'admin/scss/plugin/_peicon';
+@import 'admin/scss/plugin/_aos';
+@import 'admin/scss/plugin/_select2';
+@import 'admin/scss/plugin/_ionRangeSlider';
+@import 'admin/scss/plugin/_datatables.scss';
+
+
+@import 'admin/scss/base/_font';
+@import 'admin/scss/base/_mixins';
+@import 'admin/scss/base/_variables';
+@import 'admin/scss/base/_base';
+
+
+@import 'admin/scss/layout/_header';
+@import 'admin/scss/layout/_footer';
+
+@import 'admin/scss/module/_block';
+@import 'admin/scss/module/_buttons';
+
+
+.success_msg{text-align: center;font-size: 24px;color: green;}
+.w-50.vertical-align-top{vertical-align: top;}
+.city-box{    display: inline-block;width: 12%;padding: 10px 0;font-size: 16px;}

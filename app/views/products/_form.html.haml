@@ -1,0 +1,151 @@
+-# = javascript_include_tag Ckeditor.cdn_url
+-# - store = @store
+-# = form_for(@product) do |f|
+-#   .row
+-#     .common-container.w-50.va-top
+-#       .form-box
+-#         %label 
+-#           Product Title
+-#           %i.reauire *
+-#           %span.tooltip-box
+-#             %i.fa.fa-info-circle
+-#             %span.tooltip
+-#               Name of the product. This name will reflect on your Store for the Product
+-#         = f.text_field :title, :autocomplete => "off", placeholder: "eg.Maroon Shirt"
+
+= javascript_include_tag Ckeditor.cdn_url
+= form_for(@product) do |f|
+  .row
+    .common-container.w-50
+      .form-box
+        %label 
+          Product Title
+          %i.reauire *
+        = f.text_field :title, :autocomplete => "off", placeholder: "What's your product?"
+      .row
+        .form-box.w-50
+          %label 
+            Date
+            %i.reauire *
+            %span.tooltip-box
+              %i.fa.fa-info-circle
+              %span.tooltip
+                What is Todays's date?
+          = f.text_field :created_at, :class => "datepicker", :autocomplete => "off", placeholder: "00/00/00"
+      .row
+        .form-box.w-50
+          %label 
+            Name 
+            %i.reauire *
+          = f.text_field :seo_name, :autocomplete => "off", placeholder: "What's your name?"
+      .row
+        .form-box.w-50
+          %label 
+            Desciption of the product
+            %i.reauire *
+          = f.text_area :description, :autocomplete => "off", placeholder: "Describe the product you are listing."
+      .toggle-box
+        .toggle-head
+          %h4.heading04 Status
+          %label.switch
+            = f.check_box :status
+            %span.slider.round
+        %p Inactive products will not be listed anywhere
+
+
+  %button.btn.l-btn#open_loader Save
+
+
+      
+-# .form-box.w-50
+-#   %label 
+-#     End Date
+-#     %i.reauire *
+-#     %span.tooltip-box
+-#       %i.fa.fa-info-circle
+-#       %span.tooltip
+-#         The coupon will expire at 00:00:00 of this date.
+-#   = f.text_field :end_date, :class => "datepicker", :autocomplete => "off", placeholder: "31/03/2021"
+
+    -#   .form-box
+    -#     %label Custom Error Message*
+    -#     = f.text_area :custom_error_msg, placeholder: "Sorry, this code is invalid"
+    -#   .row
+    -#     .form-box.w-50
+    -#       %label 
+    -#         Min Purchase Amount
+    -#         %span.tooltip-box
+    -#           %i.fa.fa-info-circle
+    -#           %span.tooltip
+    -#             This field allows you to set the minimum spend (subtotal) allowed to use the coupon.
+    -#       = f.text_field :minimum_purchase_amt, :class => "textfield", :autocomplete => "off", placeholder: "500"
+    -#     .form-box.w-50
+    -#       %label Max Discount Amount
+    -#       = f.text_field :max_discount_amt, :class => "textfield", :autocomplete => "off", placeholder: "2000"
+    -#   .row
+    -#     .form-box.w-40
+    -#       %label 
+    -#         Discount Amount
+    -#         %i.reauire *
+    -#       = f.text_field :discount_amt , :autocomplete => "off" , placeholder: "500"
+    -#     .form-box.w-20.or
+    -#       %label Or
+    -#     .form-box.w-40
+    -#       %label 
+    -#         Discount Percent(Ex. 10)
+    -#         %i.reauire *
+    -#       = f.text_field :discount_percent, :autocomplete => "off", placeholder: "10%"
+    -#   .row
+    -#     .form-box.w-50
+    -#       %label 
+    -#         Usage limit per coupon
+    -#         %i.reauire *
+    -#         %span.tooltip-box
+    -#           %i.fa.fa-info-circle
+    -#           %span.tooltip
+    -#             How many times this coupon can be used before it is void.
+    -#       = f.text_field :coupon_count, :class => "textfield", :autocomplete => "off", placeholder: "100"
+
+    -#     .form-box.w-50
+    -#       %label 
+    -#         Usage limit per customer
+    -#         %span.tooltip-box
+    -#           %i.fa.fa-info-circle
+    -#           %span.tooltip
+    -#             How many times this coupon can be used by an individual user. Uses billing email for guests, and user ID for logged in users.
+    -#       = f.text_field :no_of_use_per_customer, :class => "textfield", :autocomplete => "off", placeholder: "1"
+      
+        
+    -# .common-container.w-50.cupon-prod-box
+    -#   .form-box
+    -#     %label 
+    -#       Products
+    -#       %span.tooltip-box
+    -#         %i.fa.fa-info-circle
+    -#         %span.tooltip
+    -#           Products that the coupon will be applied to, or that need to be in the cart in order for the "Fixed cart discount" to be applied.
+    -#   .row
+    -#     .mult-select-box.w-100
+    -#       - products = Product.where("store_id =? and  status =?", @store["id"], true)
+    -#       = select_tag "coupon[product_ids][]", options_for_select(products.pluck(:title,:id), @coupon.products.pluck(:id)), :prompt => "Select Product", :id => "multi-select",:multiple => true
+
+    -#   .form-box
+    -#     %label 
+    -#       Categories
+    -#       %span.tooltip-box
+    -#         %i.fa.fa-info-circle
+    -#         %span.tooltip
+    -#           Categories that the coupon will be applied to, or that need to be in the cart in order for the "Fixed cart discount" to be applied.
+    -#   .row
+    -#     .mult-select-box.w-100
+    -#       - categories = Category.where("store_id =? and  status =?", @store["id"], true)
+    -#       = select_tag "coupon[category_ids][]", options_for_select(categories.pluck(:title,:id), @coupon.categories.pluck(:id)), :prompt => "Select Categories", :id => "multi-select1",:multiple => true
+
+  -# %button.btn.l-btn#open_loader Save
+-# = render partial: "categories/loader_partial"
+
+:javascript
+  $('#multi-select,#multi-select1').multiSelect();
+  $(".datepicker").datepicker({
+    dateFormat: 'dd/mm/yy'
+  });

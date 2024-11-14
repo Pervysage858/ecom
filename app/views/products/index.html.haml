@@ -1,0 +1,52 @@
+-# .content-wrapper
+-# %section.content-header
+-#   %h1
+-#     Products 
+-#   .row
+-#     .col-xs-12
+-#       .box
+-#         .box-header
+-#         .box-body
+-#           %table#example2.table.table-bordered.table-striped
+-#             %thead
+-#               %tr
+-#                 %th Date
+-#                 %th Description
+-#                 %th Unit 
+-#                 %th Title
+-#             %tbody
+-#               - @products.each do |b|
+-#                 %tr
+-#                   %td= b.created_at.strftime("%d-%b-%Y")
+-#                   %td= b.description.to_s
+-#                   %td= b.unit.to_s
+-#                   %td= b.title rescue nil
+.container
+  .info-box.bread-crumb-info
+    .bread-cum
+      %ul
+        %li
+          %a{:href => "javascript:;"} Home
+        %li
+          %a{:href => "javascript:;"} Products
+    %div.btn0001
+      = render partial: "products/add_new_product"
+      
+  .common-container.cat-container
+    .tab-container
+      #all.tab-box.active
+        .table-container
+          %table.table
+            %thead
+              %tr
+                %th Unit 
+                %th Unit 
+                %th Name 
+                %th Added 
+            %tbody#all_my_ques.pro-list-table.product-list-wrap
+              - @products.each_with_index do |product, i|
+                %tr
+                  %td= product.unit 
+                  %td= product.unit 
+                  %td= product.title
+                  %td= product.created_at.strftime("%d-%b-%Y")

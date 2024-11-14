@@ -1,0 +1,30 @@
+%nav.side-menubar
+  .admin-logo
+    -# %a{:href => "javascript:;"}
+    -#   - if @store.present?
+    -#     %img.logo{:alt => "", :src => "https://s3.amazonaws.com/watskart/stores/logos/#{@store['id']}/original/#{@store['logo_file_name']}"}/
+    Admin 
+  .inner-sidebar
+    #menubar    
+      - if (user_signed_in? and current_user.admin)
+        %li{class: (params[:controller] == "products" ? "active" : "")}
+          %a{:href => products_path}
+            %i.fa.fa-archive
+            %span Products
+.admin-overlay1
+.popup-box#cat-popup1
+  %span.close-popup
+    %i.fa.fa-times-circle
+  %p
+    Please upgrade your plan to get this feature
+    %a.btn{:href => ""} Upgrade
+
+:javascript
+  $(document).ready(function(){
+    $(".cat-poup1").click(function(){
+      $("#cat-popup1,.admin-overlay1").show();
+    });
+    $(".close-popup").click(function(){
+      $("#cat-popup1,.admin-overlay1").hide();
+    });
+  })
